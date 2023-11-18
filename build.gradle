@@ -1,0 +1,89 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.22.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven { name "Alibaba"; url "https://maven.aliyun.com/repository/public" }
+        maven { name "Bstek"; url "https://nexus.bsdn.org/content/groups/public/" }
+        mavenCentral()
+    }
+
+    buildscript {
+        repositories {
+            maven { name "Alibaba"; url 'https://maven.aliyun.com/repository/public' }
+            maven { name "Bstek"; url 'https://nexus.bsdn.org/content/groups/public/' }
+            maven { name "M2"; url 'https://plugins.gradle.org/m2/' }
+        }
+    }
+    configurations.all {
+        // 排除依赖项
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+ext {
+    springBootVersion = '1.5.22.RELEASE'
+    lombokVersion = '1.18.20'
+    mybatisVersion = '3.5.13'
+    tkMapperVersion = '4.1.5'
+    mybatisSpringVersion = '2.0.7'
+    springJdbcVersion = '5.0.20.RELEASE'
+    connectorMysqlVersion = '8.0.33'
+    junitVersion = '4.13.2'
+    fastjsonVersion = '2.0.40'
+    httpClientVersion = '4.5.13'
+    pageHelperVersion = '1.4.7'
+    guavaVersion = '32.1.3-jre'
+    log4jVersion = '2.7'
+    jedisVersion = '2.7.2'
+    ttlThreadVersion = '2.14.3'
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    testImplementation "junit:junit:$junitVersion"
+
+
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.mybatis:mybatis-spring:$mybatisSpringVersion"
+    compile "org.mybatis:mybatis:$mybatisVersion"
+    compile "tk.mybatis:mapper:$tkMapperVersion"
+    compile "org.springframework:spring-jdbc:$springJdbcVersion"
+    compile "mysql:mysql-connector-java:$connectorMysqlVersion"
+    compile "com.alibaba:fastjson:$fastjsonVersion"
+    compile "org.apache.httpcomponents:httpclient:$httpClientVersion"
+    compile "com.github.pagehelper:pagehelper-spring-boot-starter:$pageHelperVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+    compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
+    compile "org.apache.logging.log4j:log4j-api:$log4jVersion"
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
+    compile "redis.clients:jedis:$jedisVersion"
+    compile "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
+    compile "com.alibaba:transmittable-thread-local:$ttlThreadVersion"
+    compile 'commons-logging:commons-logging:1.2'
+
+
+}
+
+
