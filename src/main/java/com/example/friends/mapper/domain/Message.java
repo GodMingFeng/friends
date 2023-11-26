@@ -10,19 +10,27 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "message")
+public class Message implements Serializable {
 
-    private static final long serialVersionUID = -6303370178565218550L;
+    private static final long serialVersionUID = 3269784291037747685L;
 
+    /**
+     * 自增id
+     */
     @Id
     @KeySql(useGeneratedKeys = true)
     private Long id;
 
     /**
-     * 昵称
+     * 类型
      */
-    private String nickname;
+    private String content;
+
+    /**
+     * 用户唯一标识
+     */
+    private String userUniqueId;
 
     /**
      * 唯一id
@@ -30,24 +38,9 @@ public class User implements Serializable {
     private String uniqueId;
 
     /**
-     * 用户类型
+     * 状态
      */
-    private Integer type;
-
-    /**
-     * 用户地区
-     */
-    private String region;
-
-    /**
-     * 头像
-     */
-    private String avatar;
-
-    /**
-     * 手机
-     */
-    private String mobile;
+    private Integer status;
 
     /**
      * 经度
@@ -58,17 +51,6 @@ public class User implements Serializable {
      * 纬度
      */
     private BigDecimal lat;
-
-    /**
-     * ip地址
-     */
-    private String ip;
-
-
-    /**
-     * ip地址
-     */
-    private String deviceId;
 
     /**
      * 性别

@@ -4,11 +4,11 @@ public class UserInfoHolder {
 
     private static final String USER_HOLDER = "USER_HOLDER";
 
-    public static void setOpenId(String openId) {
-        ThreadLocalHolder.set(USER_HOLDER, openId);
+    public static void setUserUuid(String userUuid) {
+        ThreadLocalHolder.set(USER_HOLDER, userUuid);
     }
 
-    public static String getOpenId() {
+    public static String getUerUuid() {
         return (String) ThreadLocalHolder.get(USER_HOLDER);
     }
 }

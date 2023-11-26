@@ -2,12 +2,7 @@ package com.example.friends;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.friends.common.enums.ActivityType;
-import com.example.friends.common.enums.FavoritesType;
-import com.example.friends.core.service.activity.RankService;
 import com.example.friends.core.service.favorites.FavoritesService;
-import com.example.friends.mapper.condition.ActivityCondition;
-import com.example.friends.mapper.repository.ActivityMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

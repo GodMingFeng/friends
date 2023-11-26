@@ -20,9 +20,9 @@ public class MapperConfiguration {
     public DataSource dataSource() {
         var dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://111.229.233.241:3306/fake_jy");
-        dataSource.setUsername("fake_jy");
-        dataSource.setPassword("ApPCyMxp4NLCsjpr");
+        dataSource.setUrl("jdbc:mysql://111.229.233.241:3306/friends");
+        dataSource.setUsername("friends");
+        dataSource.setPassword("3hY7ijWTLmPEEwPR");
         return dataSource;
     }
 
