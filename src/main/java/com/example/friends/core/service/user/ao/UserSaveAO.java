@@ -1,33 +1,14 @@
-package com.example.friends.mapper.domain;
+package com.example.friends.core.service.user.ao;
 
-import lombok.Data;
-import tk.mybatis.mapper.annotation.KeySql;
-
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
-@Data
-@Table(name = "user")
-public class User implements Serializable {
-
-    private static final long serialVersionUID = -6303370178565218550L;
-
-    @Id
-    @KeySql(useGeneratedKeys = true)
-    private Long id;
+public class UserSaveAO implements Serializable {
 
     /**
      * 昵称
      */
     private String nickName;
-
-    /**
-     * 唯一id
-     */
-    private String uniqueId;
 
     /**
      * 用户类型
@@ -64,7 +45,6 @@ public class User implements Serializable {
      */
     private String ip;
 
-
     /**
      * 设备id
      */
@@ -79,14 +59,4 @@ public class User implements Serializable {
      * 密码
      */
     private String password;
-
-    /**
-     * 创建时间
-     */
-    private Date gmtCreate;
-
-    /**
-     * 修改时间
-     */
-    private Date gmtModified;
 }
